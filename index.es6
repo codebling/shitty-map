@@ -28,3 +28,5 @@ class ShittyMap {
     this.map.set(key, value);
   }
 }
+
+module.exports = ShittyMap;
