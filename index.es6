@@ -25,7 +25,7 @@ class ShittyMap {
     return value;
   }
   set(key, value) {
-    this.map.set(key, value);
+    return this.map.set(key, value);
   }
 }
 
