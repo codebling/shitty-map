@@ -27,6 +27,27 @@ class ShittyMap {
   set(key, value) {
     return this.map.set(key, value);
   }
+  clear() {
+    return this.map.clear();
+  }
+  delete(key) {
+    return this.map.delete(key);
+  }
+  entries() {
+    return this.map.entries();
+  }
+  forEach(callback, thisArg) {
+    return this.map.forEach(callback, thisArg);
+  }
+  keys() {
+    return this.map.keys();
+  }
+  values() {
+    return this.map.values();
+  }
+  [Symbol.iterator]() {
+    return this.map[Symbol.iterator];
+  }
 }
 
 module.exports = ShittyMap;
