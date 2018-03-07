@@ -4,34 +4,42 @@ class ShittyMap {
   constructor() {
     this.map = new Map();
   }
-  has(key) {
-    return this.get(key) !== undefined;
-  }
-  get(key) {
-    let value = this.map.get(key);
-    if(value === undefined) {
+  _getBackingMapKey(key) {
+    let backingMapKey;
+    if(this.map.has(key)) {
+      backingMapKey = key;
+    } else {
       let keys = this.map.keys();
-      let backingMapKeyInstance;
       for(let k of keys) {
         if(isEqual(key, k)) {
-          backingMapKeyInstance = k;
+          backingMapKey = k;
           break;
         }
       }
-      if(backingMapKeyInstance) {
-        value = this.map.get(backingMapKeyInstance);
-      }
+    }
+    return backingMapKey;
+  }
+  has(key) {
+    return this._getBackingMapKey(key) !== undefined;
+  }
+  get(key) {
+    let value;
+    let backingMapKey = this._getBackingMapKey(key);
+    if(backingMapKey !== undefined) {
+      value = this.map.get(backingMapKey);
     }
     return value;
   }
   set(key, value) {
-    return this.map.set(key, value);
+    let backingMapKey = this._getBackingMapKey(key) || key;
+    return this.map.set(backingMapKey, value);
   }
   clear() {
     return this.map.clear();
   }
   delete(key) {
-    return this.map.delete(key);
+    let backingMapKey = this._getBackingMapKey(key);
+    return this.map.delete(backingMapKey);
   }
   entries() {
     return this.map.entries();
