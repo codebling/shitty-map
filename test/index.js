@@ -11,7 +11,7 @@ describe('map.get', function() {
   map.set(key, value);
   map.set({bla: 2}, 'another value here 2');
 
-  it('should find a keymatch for an object which is a shallow copy of a key', function() {
+  it('should find a keymatch for an object which is a deep copy of a key', function() {
     const keyCopy = Object.assign({}, key);
     map.get(keyCopy).should.equal(value);
   });
