@@ -12,7 +12,9 @@ describe('map.get', function() {
     
     map.get(keyCopy).should.equal(value);
   });
+});
 
+describe('native Map backwards compatibility', function() {
   it('should return undefined for an unknown key', function() {
     const map = new Map();
     map.set('here is', 'a value which will not be used');
