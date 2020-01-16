@@ -1,7 +1,7 @@
 {
   "name": "shitty-map",
   "version": "1.2.0",
-  "main": "index.es6",
+  "main": "index.js",
   "private": true,
   "license": "UNLICENSED",
   "dependencies": {
@@ -13,6 +13,6 @@
     "sinon": "^4.2.2"
   },
   "scripts": {
-    "test": "node_modules/.bin/mocha ./test/**/*.es6 ./test/**/*.js"
+    "test": "node_modules/.bin/mocha ./test/**/*.js"
   }
 }

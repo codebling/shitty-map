@@ -1,4 +1,4 @@
-const Map = require('../index.es6');
+const Map = require('../index');
 const should = require('chai').should();
 const expect = require('chai').expect;
 
