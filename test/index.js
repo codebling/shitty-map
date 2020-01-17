@@ -13,8 +13,8 @@ describe('native Map backwards-compatibility', function() {
   });
 });
 
-describe('map.get', function() {
-  it('should find a keymatch for an object which is a deep copy of a key', function() {
+describe('expanded Object functionality', function() {
+  it('should return value when we .get() using a copy of a simple Object key', function() {
     const smap = new ShittyMap();
     const key = { t: 1};
     const value = 'test';
