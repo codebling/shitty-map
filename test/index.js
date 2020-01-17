@@ -14,13 +14,42 @@ describe('native Map backwards-compatibility', function() {
 });
 
 describe('expanded Object functionality', function() {
-  it('should return value when we .get() using a copy of a simple Object key', function() {
-    const smap = new ShittyMap();
-    const key = { t: 1};
-    const value = 'test';
-    smap.set(key, value);
-    const keyCopy = Object.assign({}, key);
-    
-    smap.get(keyCopy).should.equal(value);
+  describe('should return value when we .get() using a ', () => {
+    it('copy of a simple Object key', function() {
+      const smap = new ShittyMap();
+      const key = { t: 1};
+      const value = 'test';
+      
+      smap.set(key, value);
+      const keyCopy = Object.assign({}, key);
+      
+      smap.get(keyCopy).should.equal(value);
+    });
+
+    it('shallow copy of an Object key', function() {
+      const smap = new ShittyMap();
+      const subobject = { bla: 5 }; 
+      const key = { t: 1, grr: subobject };
+      const value = 'test';
+
+      smap.set(key, value);
+      const keyCopy = Object.assign({}, key);
+      
+      smap.get(keyCopy).should.equal(value);
+    });
+
+    it('deep copy of an Object key', function() {
+      const smap = new ShittyMap();
+      const subobject = { bla: 5 }; 
+      const key = { t: 1, grr: subobject };
+      const value = 'test';
+
+      smap.set(key, value);
+      const subojectCopy = Object.assign({}, subobject);
+      const keyCopy = Object.assign({}, key);
+      keyCopy.grr = subojectCopy;
+      
+      smap.get(keyCopy).should.equal(value);
+    });
   });
 });
