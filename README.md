@@ -1,3 +1,10 @@
+# Shitty-map
+
+### Installation
+```
+npm i shitty-map
+```
+
 This is a shitty map. It allows you to use Objects as keys in a map. 
 
 Javascript's built-in Map allows you to use Object keys, but values stored with Object keys can only be retrieved using references to the original Object, copies will not work. 
