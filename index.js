@@ -8,7 +8,7 @@ class ShittyMap {
     let backingMapKey;
     if(this.map.has(key)) {
       backingMapKey = key;
-    } else {
+    } else if(mightstillbeequal) {
       let keys = this.map.keys();
       for(let k of keys) {
         if(isEqual(key, k)) {
